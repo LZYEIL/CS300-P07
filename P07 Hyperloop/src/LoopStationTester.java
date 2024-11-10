@@ -78,14 +78,12 @@ public class LoopStationTester {
     Pod economyClassPod1 = station.createPod(5, false);
     Pod economyClassPod2 = station.createPod(6, false);
 
-    // 发射第一个 First Class Pod
     station.launchPod();
     if (station.launched.size() != 1 || station.launched.get(0) != firstClassPod1) {
       System.out.println("Error: First Class Pod launch order incorrect.");
       return false;
     }
 
-    // 发射第二个 First Class Pod
     station.launchPod();
     if (station.launched.size() != 2 || station.launched.get(1) != firstClassPod2) {
       System.out.println("Error: Second First Class Pod launch order incorrect.");
@@ -99,26 +97,22 @@ public class LoopStationTester {
       return false;
     }
 
-    // 发射第二个 Economy Class Pod
     station.launchPod();
     if (station.launched.size() != 4 || station.launched.get(3) != economyClassPod2) {
       System.out.println("Error: Second Economy Class Pod launch order incorrect.");
       return false;
     }
 
-    // 检查等待队列是否为空
     if (!station.waitingFirst.isEmpty() || !station.waitingEconomy.isEmpty()) {
       System.out.println("Error: Waiting queue is not empty after launching all Pods.");
       return false;
     }
 
-    // 检查异常抛出
     try {
       station.launchPod();
       System.out.println("Error: No exception thrown when no Pods are waiting.");
       return false;
     } catch (NoSuchElementException e) {
-      // 正确抛出异常，测试通过
     }
 
     return true;
