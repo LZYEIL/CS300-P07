@@ -10,6 +10,7 @@
   -1.0: Verifies that addPassenger() correctly adds a passenger to the only Pod in the track.
         org.opentest4j.AssertionFailedError: Called addPassenger() with a passenger whose isFirstClass matched the only (empty) pod on the Track ==> expected: 
         <true> but was: <false>
+- Give it a try if you can solve the issue. You don't need to worry about others apart from these two!!!
 
 
 
