@@ -83,11 +83,11 @@ public class LoopStation {
       throw new NoSuchElementException("No Pods are waiting to launch");
     }
     Pod podToLaunch;
-    
+
     if (!waitingFirst.isEmpty()) {
-      podToLaunch = waitingFirst.remove(waitingFirst.size() - 1); 
+      podToLaunch = waitingFirst.remove(waitingFirst.size() - 1);
     } else {
-      podToLaunch = waitingEconomy.remove(0); 
+      podToLaunch = waitingEconomy.remove(0);
     }
     this.launched.add(podToLaunch);
   }
